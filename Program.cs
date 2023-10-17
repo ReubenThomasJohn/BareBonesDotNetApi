@@ -14,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 // builder.Services.AddSwaggerGen();
 
 builder.Services.AddRepositories(builder.Configuration);
+builder.Services.AddControllers();
 
 var app = builder.Build();
 app.Services.InitializeDb();
@@ -30,6 +31,7 @@ app.Services.InitializeDb();
 // app.UseAuthorization();
 
 app.MapStudentsEndpoints();
+app.MapControllers();
 app.Run();
 
 

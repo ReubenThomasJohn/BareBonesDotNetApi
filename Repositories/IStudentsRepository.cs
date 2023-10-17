@@ -2,7 +2,7 @@ using StudentApi.Entities;
 
 namespace StudentApi.Repositories
 {
-    public interface IGamesRepository
+    public interface IStudentsRepository
     {
         void Create(Student student);
 

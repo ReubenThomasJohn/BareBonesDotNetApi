@@ -2,7 +2,7 @@ using StudentApi.Entities;
 
 namespace StudentApi.Repositories;
 
-public class InMemStudentRepository : IGamesRepository
+public class InMemStudentRepository : IStudentsRepository
 {
     private readonly List<Student> students = new()
     {
@@ -20,17 +20,17 @@ public class InMemStudentRepository : IGamesRepository
         }
     };
 
-    public IEnumerable<Student> GetAll() 
+    public IEnumerable<Student> GetAll()
     {
         return students;
     }
 
-    public Student? Get(int id) 
+    public Student? Get(int id)
     {
         return students.Find(game => game.Id == id);
     }
 
-    public void Create(Student student) 
+    public void Create(Student student)
     {
         student.Id = students.Max(student => student.Id) + 1;
         students.Add(student);

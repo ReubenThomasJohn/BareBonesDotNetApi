@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudentApi.Data;
 
@@ -10,9 +11,11 @@ using StudentApi.Data;
 namespace StudentApi.Data.Migrations
 {
     [DbContext(typeof(StudentListContext))]
-    partial class StudentListContextModelSnapshot : ModelSnapshot
+    [Migration("20231017035949_AddingAuthenticationSupport")]
+    partial class AddingAuthenticationSupport
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,14 +70,6 @@ namespace StudentApi.Data.Migrations
                     b.HasIndex("UserStatusId");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Username = "Reuben",
-                            PasswordHash = "$2a$11$pqKoPi/x.A6xVqstF6dDGOrHJJWkSbdpLx024v5qpLDQiSLZl96KK",
-                            UserStatusId = 1
-                        });
                 });
 
             modelBuilder.Entity("BareBonesDotNetApi.Entities.UserStatus", b =>

@@ -4,7 +4,7 @@ using StudentApi.Entities;
 
 namespace StudentApi.Repositories;
 
-public class EntityFrameworkStudentsRepository : IGamesRepository
+public class EntityFrameworkStudentsRepository : IStudentsRepository
 {
     private readonly StudentListContext dbContext;
 

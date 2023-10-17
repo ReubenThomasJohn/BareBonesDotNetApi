@@ -1,3 +1,4 @@
+using BareBonesDotNetApi.Repositories;
 using Microsoft.EntityFrameworkCore;
 using StudentApi.Repositories;
 
@@ -19,8 +20,10 @@ public static class DataExtensions
     {
         var connString = configuration.GetConnectionString("StudentDbConnectionString");
         services.AddSqlServer<StudentListContext>(connString)
-                        .AddScoped<IGamesRepository, EntityFrameworkStudentsRepository>(); // SqlServer is registered as a scoped service.
-    
-     return services;
+                        .AddScoped<IStudentsRepository, EntityFrameworkStudentsRepository>();
+        services.AddSqlServer<StudentListContext>(connString)
+                        .AddScoped<IUsersRepository, EntityFrameworkUsersRepository>(); // SqlServer is registered as a scoped service.
+
+        return services;
     }
 }

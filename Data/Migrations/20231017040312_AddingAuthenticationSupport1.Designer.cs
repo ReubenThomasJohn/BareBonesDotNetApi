@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudentApi.Data;
 
@@ -10,9 +11,11 @@ using StudentApi.Data;
 namespace StudentApi.Data.Migrations
 {
     [DbContext(typeof(StudentListContext))]
-    partial class StudentListContextModelSnapshot : ModelSnapshot
+    [Migration("20231017040312_AddingAuthenticationSupport1")]
+    partial class AddingAuthenticationSupport1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

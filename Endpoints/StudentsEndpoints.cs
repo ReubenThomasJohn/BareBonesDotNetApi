@@ -14,21 +14,21 @@ public static class StudentsEndpoints
         //.WithParameterValidation();
 
 
-        group.MapGet("/", (IGamesRepository repository) => repository.GetAll());
+        group.MapGet("/", (IStudentsRepository repository) => repository.GetAll());
 
-        group.MapGet("/{id}", (IGamesRepository repository, int id) =>
+        group.MapGet("/{id}", (IStudentsRepository repository, int id) =>
         {
             Student? student = repository.Get(id);
             return student is not null ? Results.Ok(student) : Results.NotFound();
         }).WithName(GetStudentEndpointName);
 
-        group.MapPost("/", (IGamesRepository repository, Student student) =>
+        group.MapPost("/", (IStudentsRepository repository, Student student) =>
         {
             repository.Create(student);
             return Results.CreatedAtRoute(GetStudentEndpointName, new { id = student.Id }, student);
         });
 
-        group.MapPut("/{id}", (IGamesRepository repository, int id, Student updatedStudent) =>
+        group.MapPut("/{id}", (IStudentsRepository repository, int id, Student updatedStudent) =>
         {
             Student? existingStudent = repository.Get(id);
 
@@ -45,7 +45,7 @@ public static class StudentsEndpoints
             return Results.NoContent();
         });
 
-        group.MapDelete("/{id}", (IGamesRepository repository, int id) =>
+        group.MapDelete("/{id}", (IStudentsRepository repository, int id) =>
         {
             Student? student = repository.Get(id);
 
