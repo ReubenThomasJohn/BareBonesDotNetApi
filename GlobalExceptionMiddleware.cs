@@ -14,7 +14,7 @@ public class GlobalExceptionMiddleware
         this.logger = logger;
         this.next = next;
     }
-    // context is the http request that has all the info about the request coming into the application. // next is the next function that executes after this middleware. It could be the endpoint, or another middleware etc.
+    
 
     public async Task InvokeAsync(HttpContext httpContext)
     {
