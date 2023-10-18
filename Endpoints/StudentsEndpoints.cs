@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Newtonsoft.Json;
 using StudentApi.Entities;
 using StudentApi.Repositories;
@@ -14,7 +15,31 @@ public static class StudentsEndpoints
         //.WithParameterValidation();
 
 
-        group.MapGet("/", (IStudentsRepository repository) => repository.GetAll());
+        group.MapGet("/", (IStudentsRepository repository, ILogger<Program> Logger) =>
+        {
+            try
+            {
+                return Results.Ok(repository.GetAll());
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(
+                    ex, "Couldnot process a request on machine {Machine}. TraceID: {TraceID}",
+                    Environment.MachineName,
+                    Activity.Current?.Id);
+
+                // return Results.StatusCode(500); // not a nice experience for the client
+                return Results.Problem(
+                    title: "We made a mistake, but we are working on it!",
+                    statusCode: StatusCodes.Status500InternalServerError,
+                    extensions: new Dictionary<string, object?>
+                    {
+                        {"traceID", Activity.Current?.Id}
+                    }
+                );
+            }
+        });
+
 
         group.MapGet("/{id}", (IStudentsRepository repository, int id) =>
         {
@@ -39,6 +64,7 @@ public static class StudentsEndpoints
 
             existingStudent.Name = updatedStudent.Name;
             existingStudent.Rank = updatedStudent.Rank;
+            existingStudent.StateId = updatedStudent.StateId;
 
             repository.Update(existingStudent);
 

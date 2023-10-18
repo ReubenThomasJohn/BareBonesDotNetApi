@@ -21,12 +21,15 @@ public class EntityFrameworkStudentsRepository : IStudentsRepository
 
     public Student? Get(int id)
     {
-        return dbContext.Students.Find(id);
+        throw new InvalidOperationException("The database connection is closed!");
+        //return dbContext.Students.Find(id);
     }
 
     public IEnumerable<Student> GetAll()
     {
-        return dbContext.Students.AsNoTracking().ToList();  // Don't keep track of changes using AsNoTracking
+        // I made a change in Exception settings for this to work, check out exception settings
+        throw new InvalidOperationException("The database connection is closed!");
+        // return dbContext.Students.AsNoTracking().ToList();  // Don't keep track of changes using AsNoTracking
     }
 
     public void Update(Student updatedStudent)
