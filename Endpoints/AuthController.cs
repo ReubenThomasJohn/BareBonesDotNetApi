@@ -3,6 +3,8 @@ using System.Security.Claims;
 using System.Text;
 using BareBonesDotNetApi.Entities;
 using BareBonesDotNetApi.Repositories;
+using BareBonesDotNetApi.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -15,11 +17,25 @@ public class AuthController : ControllerBase
     // public static User user = new User();
     private readonly IConfiguration _configuration;
     private readonly IUsersRepository _repository;
+    private readonly IUserService userService;
 
-    public AuthController(IConfiguration configuration, IUsersRepository repository)
+    public AuthController(IConfiguration configuration, IUsersRepository repository, IUserService userService)
     {
         _configuration = configuration;
         _repository = repository;
+        this.userService = userService;
+    }
+
+    [HttpGet("get-me"), Authorize]
+    public ActionResult<string> GetMe()
+    {
+        var userName = userService.GetMyName();
+        return Ok(userName);
+
+        // var userName = User.Identity?.Name;
+        // var userName2 = User.FindFirstValue(ClaimTypes.Name);
+        // var role = User.FindFirstValue(ClaimTypes.Role);
+        // return Ok(new { userName, userName2, role });
     }
 
     [HttpPost("register")]
@@ -61,6 +77,13 @@ public class AuthController : ControllerBase
         string token = CreateToken(user);
 
         return Ok(token);
+    }
+
+    [HttpPost("soft-delete/{username}")]
+    public async Task<IActionResult> PerformSoftDelete(string username)
+    {
+        var softDeletedUser = await _repository.SoftDelete(username);
+        return Ok(softDeletedUser);
     }
 
     private string CreateToken(User user)

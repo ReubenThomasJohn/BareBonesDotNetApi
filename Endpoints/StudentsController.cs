@@ -17,9 +17,10 @@ public class StudentsController : ControllerBase
         this.repository = repository;
     }
 
-    const string GetStudentEndpointName = "GetGame";
+    const string GetStudentEndpointName = "GetStudentById";
 
-    [HttpGet("students", Name = "GetStudentById")]
+    [HttpGet("students", Name = "GetAllStudents")]
+    // [Route("/students")]
     [Authorize(Roles = "Admin")]
     // [Authorize]
     public IActionResult GetAll()
@@ -27,19 +28,19 @@ public class StudentsController : ControllerBase
         return Ok(repository.GetAll());
     }
 
-    [HttpGet("students/{id}")]
+    [HttpGet("students/{id}", Name = "GetStudentById")]
     public IActionResult Get(int id)
     {
         Student? student = repository.Get(id);
         return student is not null ? Ok(student) : NotFound();
     }
 
-    // [HttpPost(Name = "students")]
-    // public IActionResult Post(Student student)
-    // {
-    //     repository.Create(student);
-    //     return CreatedAtRoute(GetStudentEndpointName, new { id = student.Id }, student);
-    // }
+    [HttpPost("students")]
+    public IActionResult Post(Student student)
+    {
+        repository.Create(student);
+        return CreatedAtRoute(GetStudentEndpointName, new { id = student.Id }, student);
+    }
 
     [HttpPut("students/{id}")]
     public IActionResult Put(int id, Student updatedStudent)
@@ -60,7 +61,7 @@ public class StudentsController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete(Name = "students/{id}")]
+    [HttpDelete("students/{id}")]
     public IActionResult Delete(int id)
     {
         Student? student = repository.Get(id);

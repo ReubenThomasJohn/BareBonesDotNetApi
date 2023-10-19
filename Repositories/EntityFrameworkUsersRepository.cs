@@ -1,4 +1,5 @@
 using BareBonesDotNetApi.Entities;
+using Microsoft.EntityFrameworkCore;
 using StudentApi.Data;
 
 namespace BareBonesDotNetApi.Repositories
@@ -36,7 +37,7 @@ namespace BareBonesDotNetApi.Repositories
 
         public async Task<User> Get(string username)
         {
-            return await dbContext.Users.FindAsync(username);
+            return await dbContext.Users.FirstOrDefaultAsync(user => user.Username == username);
         }
 
         public IEnumerable<User> GetAll()
@@ -44,9 +45,14 @@ namespace BareBonesDotNetApi.Repositories
             return dbContext.Users.ToList();
         }
 
-        public async Task<User> SoftDelete(int id, string newPassword)
+        public async Task<User> SoftDelete(string username)
         {
-            throw new NotImplementedException();
+            var userToSoftDelete = dbContext.Users.FirstOrDefault(user => user.Username == username);
+            userToSoftDelete.PasswordHash = "";
+            userToSoftDelete.UserStatusId = 5;
+            dbContext.Users.Update(userToSoftDelete);
+            await dbContext.SaveChangesAsync();
+            return userToSoftDelete;
         }
     }
 }

@@ -10,5 +10,5 @@ public interface IUsersRepository
     Task<User> Delete(string username);
     Task<User> Get(string username);
     IEnumerable<User> GetAll();
-    Task<User> SoftDelete(int id, string newPassword);
+    Task<User> SoftDelete(string username);
 }
