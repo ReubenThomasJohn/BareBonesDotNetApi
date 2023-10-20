@@ -11,6 +11,8 @@ using Microsoft.IdentityModel.Tokens;
 namespace BareBonesDotNetApi.Endpoints;
 
 [Route("api/[controller]")]
+// [Consumes("application/json", "application/xml")] // Set default input content types
+// [Produces("application/json", "application/xml")]
 [ApiController]
 public class AuthController : ControllerBase
 {
@@ -38,10 +40,19 @@ public class AuthController : ControllerBase
         // return Ok(new { userName, userName2, role });
     }
 
-    [HttpPost("register")]
-    public async Task<IActionResult> Register(UserDto request)
+    [HttpPost("register.{format}"), FormatFilter]
+    [Consumes("application/json", "application/xml")]
+    [Produces("application/json", "application/xml")]
+    public async Task<IActionResult> Register([FromBody] UserDto request)
     {
+        if (request == null)
+        {
+            return BadRequest("Invalid data.");
+        }
+
         string passwordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
+
+        // Not checking if username exists in DB, so Global exception can be thrown...
 
         var user = new User()
         {
@@ -49,10 +60,23 @@ public class AuthController : ControllerBase
             PasswordHash = passwordHash,
             UserStatusId = 2
         };
-        var addedUser = await _repository.Create(user);
+
+        var addedUser = await _repository.Create(user); // exception will be thrown here
+
         if (addedUser != null)
         {
-            return Ok(addedUser);
+            // Handle content negotiation to return JSON or XML
+            var contentType = Request.ContentType;
+            if (contentType == "application/xml")
+            {
+                // Return XML
+                return Ok(addedUser);
+            }
+            else
+            {
+                // Return JSON (default)
+                return Ok(addedUser);
+            }
         }
         else
         {

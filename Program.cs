@@ -11,7 +11,11 @@ using BareBonesDotNetApi.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.RespectBrowserAcceptHeader = true; // Respect client Accept headers
+}).AddXmlDataContractSerializerFormatters(); // Add support for XML
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IUserService, UserService>();
@@ -44,6 +48,8 @@ var app = builder.Build();
 
 // app.UseMiddleware<GlobalExceptionMiddleware>();
 app.UseExceptionHandler(exceptionHandlerApp => exceptionHandlerApp.ConfigureExceptionHandler());
+// app.UseExceptionHandler("/Home/Error");
+
 
 app.Services.InitializeDb();
 
