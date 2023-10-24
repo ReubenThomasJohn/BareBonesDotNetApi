@@ -8,5 +8,6 @@
 - [x] Implement logging middleware
 - [x] Support different MediaTypes
 
-- [ ] Create a log file where everything is logged
+- [x] Create a log file where everything is logged
 - [ ] Add the MediaType support globally in Program.cs
+

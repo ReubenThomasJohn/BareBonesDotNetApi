@@ -20,12 +20,14 @@ public class AuthController : ControllerBase
     private readonly IConfiguration _configuration;
     private readonly IUsersRepository _repository;
     private readonly IUserService userService;
+    private readonly ILogger<AuthController> _logger;
 
-    public AuthController(IConfiguration configuration, IUsersRepository repository, IUserService userService)
+    public AuthController(IConfiguration configuration, IUsersRepository repository, IUserService userService, ILogger<AuthController> logger)
     {
         _configuration = configuration;
         _repository = repository;
         this.userService = userService;
+        _logger = logger;
     }
 
     [HttpGet("get-me"), Authorize]
@@ -45,6 +47,7 @@ public class AuthController : ControllerBase
     [Produces("application/json", "application/xml")]
     public async Task<IActionResult> Register([FromBody] UserDto request)
     {
+        _logger.LogInformation("CUSTOM LOG:: ENTERING REGISTER ENDPOINT!!");
         if (request == null)
         {
             return BadRequest("Invalid data.");

@@ -6,6 +6,7 @@ using Swashbuckle.AspNetCore.Filters;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using BareBonesDotNetApi.Services;
+using Serilog;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -43,6 +44,30 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
 });
 
 builder.Services.AddRepositories(builder.Configuration);
+
+builder.Logging.ClearProviders();
+var env = builder.Environment;
+if (env.IsDevelopment())
+{
+
+    builder.Host.UseSerilog((hostContext, services, configuration) =>
+    {
+        configuration
+            .MinimumLevel.Debug()
+            .WriteTo.File("serilog-file.txt")
+            .WriteTo.Console()
+            .ReadFrom.Configuration(hostContext.Configuration);
+    });
+}
+else
+{
+    builder.Host.UseSerilog((hostContext, services, configuration) =>
+    {
+        configuration
+            .WriteTo.File("serilog-file.txt")
+            .WriteTo.Console();
+    });
+}
 
 var app = builder.Build();
 
