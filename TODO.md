@@ -9,5 +9,7 @@
 - [x] Support different MediaTypes
 
 - [x] Create a log file where everything is logged
-- [ ] Add the MediaType support globally in Program.cs
+- [x] Add the MediaType support globally in Program.cs
+
+- [ ] Add a config file, which gives the log level info to the logger in Program.cs
 
