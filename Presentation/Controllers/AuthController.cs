@@ -42,9 +42,9 @@ public class AuthController : ControllerBase
         // return Ok(new { userName, userName2, role });
     }
 
-    [HttpPost("register.{format}"), FormatFilter]
-    [Consumes("application/json", "application/xml")]
-    [Produces("application/json", "application/xml")]
+    [HttpPost("register")]
+    // [Consumes("application/json", "application/xml")]
+    // [Produces("application/json", "application/xml")]
     public async Task<IActionResult> Register([FromBody] UserDto request)
     {
         _logger.LogInformation("CUSTOM LOG:: ENTERING REGISTER ENDPOINT!!");

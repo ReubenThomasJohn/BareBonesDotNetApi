@@ -7,6 +7,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using BareBonesDotNetApi.Services;
 using Serilog;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Mvc;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -44,6 +46,11 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
 });
 
 builder.Services.AddRepositories(builder.Configuration);
+
+builder.Services.AddMvc(options =>
+{
+    options.RespectBrowserAcceptHeader = true;
+}).AddXmlSerializerFormatters();
 
 builder.Logging.ClearProviders();
 var env = builder.Environment;
