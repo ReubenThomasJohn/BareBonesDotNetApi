@@ -1,3 +1,4 @@
+using System.Dynamic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using StudentApi.Entities;
@@ -15,29 +16,81 @@ public class StudentsService : IStudentsService
         this.repository = repository;
         this.memoryCache = memoryCache;
     }
-    public IActionResult Delete(int id)
+    public Student? Delete(int id)
     {
-        throw new NotImplementedException();
+        Student? student = repository.Get(id);
+
+        if (student is not null)
+        {
+            repository.Delete(id);
+        }
+        return student;
     }
 
-    public IActionResult Get(int id)
+    public Student? Get(int id)
     {
-        throw new NotImplementedException();
+        Student? student = repository.Get(id);
+        return student;
     }
 
-    public Task<IActionResult?> GetAll()
+    public async Task<IEnumerable<Student>?> GetAll()
     {
-        throw new NotImplementedException();
+        IEnumerable<Student> allStudents = new List<Student>();
+        // allStudents = memoryCache.GetOrCreate<IEnumerable<Student?>>("students", entry => allStudents);
+        allStudents = memoryCache.Get<IEnumerable<Student>>("students");
+
+        if (allStudents is not null)
+        {
+            var firstRecordInCashe = allStudents.ToList()[0];
+            bool isTestInputInCache = firstRecordInCashe.Name == "Anish";
+            if (isTestInputInCache)
+            {
+                allStudents = await repository.GetAll(); // introduces a 5s delay
+                memoryCache.Set("students", allStudents, TimeSpan.FromMinutes(1));
+            }
+        }
+
+        else if (allStudents is null)
+        {
+            allStudents = await repository.GetAll(); // introduces a 5s delay
+            memoryCache.Set("students", allStudents, TimeSpan.FromMinutes(1));
+        }
+        // allStudents = await repository.GetAll(); // introduces a 5s delay
+        // memoryCache.Set("students", allStudents, TimeSpan.FromMinutes(1));
+        return allStudents;
     }
 
-    public IActionResult Post(Student student)
+    public Student Post(Student student)
     {
-        throw new NotImplementedException();
+        var createdStudent = repository.Create(student);
+        return createdStudent;
     }
 
-    public IActionResult Put(int id, Student updatedStudent)
+    public Student Put(int id, Student updatedStudent)
     {
-        throw new NotImplementedException();
+        Student? existingStudent = repository.Get(id);
+
+        if (existingStudent is null)
+        {
+            return null;
+        }
+
+        existingStudent.Name = updatedStudent.Name;
+        existingStudent.Rank = updatedStudent.Rank;
+        existingStudent.StateId = updatedStudent.StateId;
+
+        repository.Update(existingStudent);
+        return existingStudent;
+    }
+    public dynamic TestCache()
+    {
+        dynamic runTimeObject = new ExpandoObject();
+
+        bool isRecordSame = CheckingCacheFromPrivateFn("students");
+        runTimeObject.isRecordSame = isRecordSame;
+        runTimeObject.StudentFromInsert = "World";
+        runTimeObject.StudentFromAccess = "Hello";
+        return runTimeObject;
     }
 
     public bool CheckingCacheFromPrivateFn(string cache)

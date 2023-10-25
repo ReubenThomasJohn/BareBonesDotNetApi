@@ -4,7 +4,7 @@ namespace StudentApi.Repositories
 {
     public interface IStudentsRepository
     {
-        void Create(Student student);
+        Student Create(Student student);
 
         void Delete(int id);
 

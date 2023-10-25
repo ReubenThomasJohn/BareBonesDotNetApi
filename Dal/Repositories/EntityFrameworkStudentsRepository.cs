@@ -13,10 +13,12 @@ public class EntityFrameworkStudentsRepository : IStudentsRepository
         this.dbContext = dbContext;
     }
 
-    public void Create(Student student)
+    public Student Create(Student student)
     {
         dbContext.Students.Add(student);
         dbContext.SaveChanges();
+
+        return student;
     }
 
     public Student? Get(int id)

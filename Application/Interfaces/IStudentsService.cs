@@ -5,13 +5,13 @@ namespace BareBonesDotNetApi.Application.Services;
 
 public interface IStudentsService
 {
-    public Task<IActionResult?> GetAll();
-    public IActionResult Get(int id);
+    public Task<IEnumerable<Student>?> GetAll();
+    public Student? Get(int id);
 
-    public IActionResult Post(Student student);
+    public Student Post(Student student);
 
-    public IActionResult Put(int id, Student updatedStudent);
+    public Student Put(int id, Student updatedStudent);
 
-    public IActionResult Delete(int id);
-    public bool CheckingCacheFromPrivateFn(string cache);
+    public Student? Delete(int id);
+    public dynamic TestCache();
 }
