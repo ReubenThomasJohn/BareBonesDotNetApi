@@ -1,6 +1,15 @@
+using BareBonesDotNetApi.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using StudentApi.Entities;
+using StudentApi.Repositories;
+using BareBonesDotNetApi.Application.Services;
+
 namespace BareBonesDotNetApi.Presentation.Controllers;
 
-public class StudentsCachedController
+[ApiController]
+[Route("api/[controller]")]
+public class StudentsCachedController : ControllerBase, IStudentsService
 {
-    
+
 }
