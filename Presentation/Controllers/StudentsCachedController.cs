@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using StudentApi.Entities;
 using BareBonesDotNetApi.Application.Services;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BareBonesDotNetApi.Presentation.Controllers;
 
@@ -37,8 +38,13 @@ public class StudentsCachedController : ControllerBase
     [HttpPost("students")]
     public IActionResult Post(Student student)
     {
-        var createdStudent = studentsService.Post(student);
-        return CreatedAtRoute(GetStudentEndpointName, new { id = createdStudent.Id }, createdStudent);
+        if (ModelState.IsValid)
+        {
+            var createdStudent = studentsService.Post(student);
+            return CreatedAtRoute(GetStudentEndpointName, new { id = createdStudent.Id }, createdStudent);
+        }
+        Console.WriteLine("HEHEHE");
+        return BadRequest();
     }
 
     [HttpPut("students/{id}")]

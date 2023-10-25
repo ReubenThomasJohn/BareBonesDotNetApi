@@ -18,7 +18,7 @@ public class EntityFrameworkStudentsRepository : IStudentsRepository
         dbContext.Students.Add(student);
         dbContext.SaveChanges();
 
-        return student;
+        return student; 
     }
 
     public Student? Get(int id)
