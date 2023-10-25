@@ -1,66 +1,66 @@
-using System.Diagnostics;
-using Newtonsoft.Json;
-using StudentApi.Entities;
-using StudentApi.Repositories;
+// using System.Diagnostics;
+// using Newtonsoft.Json;
+// using StudentApi.Entities;
+// using StudentApi.Repositories;
 
-namespace StudentApi.Endpoints;
+// namespace StudentApi.Endpoints;
 
-public static class StudentsEndpoints
-{
-    const string GetStudentEndpointName = "GetGame";
-    public static RouteGroupBuilder MapStudentsEndpoints(this IEndpointRouteBuilder routes)
-    {
+// public static class StudentsEndpoints
+// {
+//     const string GetStudentEndpointName = "GetGame";
+//     public static RouteGroupBuilder MapStudentsEndpoints(this IEndpointRouteBuilder routes)
+//     {
 
-        var group = routes.MapGroup("/students");
-        //.WithParameterValidation();
-
-
-        group.MapGet("/", (IStudentsRepository repository, ILogger<Program> Logger) =>
-        {
-            return Results.Ok(repository.GetAll());
-        });
+//         var group = routes.MapGroup("/students");
+//         //.WithParameterValidation();
 
 
-        group.MapGet("/{id}", (IStudentsRepository repository, int id) =>
-        {
-            Student? student = repository.Get(id);
-            return student is not null ? Results.Ok(student) : Results.NotFound();
-        }).WithName(GetStudentEndpointName);
+//         group.MapGet("/", (IStudentsRepository repository, ILogger<Program> Logger) =>
+//         {
+//             return Results.Ok(repository.GetAll());
+//         });
 
-        group.MapPost("/", (IStudentsRepository repository, Student student) =>
-        {
-            repository.Create(student);
-            return Results.CreatedAtRoute(GetStudentEndpointName, new { id = student.Id }, student);
-        });
 
-        group.MapPut("/{id}", (IStudentsRepository repository, int id, Student updatedStudent) =>
-        {
-            Student? existingStudent = repository.Get(id);
+//         group.MapGet("/{id}", (IStudentsRepository repository, int id) =>
+//         {
+//             Student? student = repository.Get(id);
+//             return student is not null ? Results.Ok(student) : Results.NotFound();
+//         }).WithName(GetStudentEndpointName);
 
-            if (existingStudent is null)
-            {
-                return Results.NotFound();
-            }
+//         group.MapPost("/", (IStudentsRepository repository, Student student) =>
+//         {
+//             repository.Create(student);
+//             return Results.CreatedAtRoute(GetStudentEndpointName, new { id = student.Id }, student);
+//         });
 
-            existingStudent.Name = updatedStudent.Name;
-            existingStudent.Rank = updatedStudent.Rank;
-            existingStudent.StateId = updatedStudent.StateId;
+//         group.MapPut("/{id}", (IStudentsRepository repository, int id, Student updatedStudent) =>
+//         {
+//             Student? existingStudent = repository.Get(id);
 
-            repository.Update(existingStudent);
+//             if (existingStudent is null)
+//             {
+//                 return Results.NotFound();
+//             }
 
-            return Results.NoContent();
-        });
+//             existingStudent.Name = updatedStudent.Name;
+//             existingStudent.Rank = updatedStudent.Rank;
+//             existingStudent.StateId = updatedStudent.StateId;
 
-        group.MapDelete("/{id}", (IStudentsRepository repository, int id) =>
-        {
-            Student? student = repository.Get(id);
+//             repository.Update(existingStudent);
 
-            if (student is not null)
-            {
-                repository.Delete(id);
-            }
-            return Results.NoContent();
-        });
-        return group;
-    }
-}
+//             return Results.NoContent();
+//         });
+
+//         group.MapDelete("/{id}", (IStudentsRepository repository, int id) =>
+//         {
+//             Student? student = repository.Get(id);
+
+//             if (student is not null)
+//             {
+//                 repository.Delete(id);
+//             }
+//             return Results.NoContent();
+//         });
+//         return group;
+//     }
+// }

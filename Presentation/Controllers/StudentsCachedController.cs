@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using StudentApi.Entities;
 using BareBonesDotNetApi.Application.Services;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using BareBonesDotNetApi.Domain.Dtos;
 
 namespace BareBonesDotNetApi.Presentation.Controllers;
 
@@ -36,21 +37,38 @@ public class StudentsCachedController : ControllerBase
     }
 
     [HttpPost("students")]
-    public IActionResult Post(Student student)
+    public IActionResult Post([FromBody] StudentDto student)
     {
-        if (ModelState.IsValid)
+        // if (ModelState.IsValid)
+        // {
+        //     var createdStudent = studentsService.Post(student);
+        //     return CreatedAtRoute(GetStudentEndpointName, new { id = createdStudent.Id }, createdStudent);
+        // }
+
+        // Console.WriteLine("HEHEHE");
+        // return BadRequest();
+
+        var postStudent = new Student()
         {
-            var createdStudent = studentsService.Post(student);
-            return CreatedAtRoute(GetStudentEndpointName, new { id = createdStudent.Id }, createdStudent);
-        }
-        Console.WriteLine("HEHEHE");
-        return BadRequest();
+            Name = student.Name,
+            Rank = student.Rank,
+            StateId = student.StateId,
+        };
+
+        var createdStudent = studentsService.Post(postStudent);
+        return CreatedAtRoute(GetStudentEndpointName, new { id = createdStudent.Id }, createdStudent);
     }
 
     [HttpPut("students/{id}")]
-    public IActionResult Put(int id, Student updatedStudent)
+    public IActionResult Put(int id, StudentDto updatedStudent)
     {
-        var studentUpdatedinDb = studentsService.Put(id, updatedStudent);
+        var studentToBeUpdated = new Student()
+        {
+            Name = updatedStudent.Name,
+            Rank = updatedStudent.Rank,
+            StateId = updatedStudent.StateId,
+        };
+        var studentUpdatedinDb = studentsService.Put(id, studentToBeUpdated);
 
         if (studentUpdatedinDb is null)
         {

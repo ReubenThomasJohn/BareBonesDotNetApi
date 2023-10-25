@@ -1,6 +1,6 @@
 using BareBonesDotNetApi;
 using StudentApi.Data;
-using StudentApi.Endpoints;
+// using StudentApi.Endpoints;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using Microsoft.IdentityModel.Tokens;
@@ -15,10 +15,10 @@ using BareBonesDotNetApi.Application.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers(options =>
-{
-    options.RespectBrowserAcceptHeader = true; // Respect client Accept headers
-}).AddXmlDataContractSerializerFormatters(); // Add support for XML
+// builder.Services.AddControllers(options =>
+// {
+//     options.RespectBrowserAcceptHeader = true; // Respect client Accept headers
+// }).AddXmlDataContractSerializerFormatters(); // Add support for XML
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -55,6 +55,8 @@ builder.Services.AddMvc(options =>
 {
     options.RespectBrowserAcceptHeader = true;
 }).AddXmlSerializerFormatters();
+// builder.Services.AddMvc();
+
 
 builder.Logging.ClearProviders();
 var env = builder.Environment;

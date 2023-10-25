@@ -1,6 +1,6 @@
 using BareBonesDotNetApi.Entities;
 using Microsoft.EntityFrameworkCore;
-using StudentApi.Endpoints;
+// using StudentApi.Endpoints;
 using StudentApi.Entities;
 namespace StudentApi.Data;
 
