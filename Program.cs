@@ -15,10 +15,10 @@ using BareBonesDotNetApi.Application.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// builder.Services.AddControllers(options =>
-// {
-//     options.RespectBrowserAcceptHeader = true; // Respect client Accept headers
-// }).AddXmlDataContractSerializerFormatters(); // Add support for XML
+builder.Services.AddControllers(options =>
+{
+    options.RespectBrowserAcceptHeader = true; // Respect client Accept headers
+}).AddXmlDataContractSerializerFormatters(); // Add support for XML
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -51,11 +51,11 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
 
 builder.Services.AddRepositories(builder.Configuration);
 
-builder.Services.AddMvc(options =>
-{
-    options.RespectBrowserAcceptHeader = true;
-}).AddXmlSerializerFormatters();
-// builder.Services.AddMvc();
+// builder.Services.AddMvc(options =>
+// {
+//     options.RespectBrowserAcceptHeader = true;
+// }).AddXmlSerializerFormatters();
+// // builder.Services.AddMvc();
 
 
 builder.Logging.ClearProviders();
