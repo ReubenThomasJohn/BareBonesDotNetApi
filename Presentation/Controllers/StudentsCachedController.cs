@@ -5,19 +5,23 @@ using StudentApi.Entities;
 using StudentApi.Repositories;
 using BareBonesDotNetApi.Application.Services;
 using Microsoft.Extensions.Caching.Memory;
+using System.Dynamic;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BareBonesDotNetApi.Presentation.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class StudentsCachedController : ControllerBase, IStudentsService
+public class StudentsCachedController : ControllerBase
 {
     private readonly IStudentsRepository repository;
     private readonly IMemoryCache memoryCache;
+    private readonly IStudentsService studentsService;
 
-    public StudentsCachedController(IStudentsRepository repository, IMemoryCache memoryCache)
+    public StudentsCachedController(IStudentsRepository repository, IMemoryCache memoryCache, IStudentsService studentsService)
     {
         this.memoryCache = memoryCache;
+        this.studentsService = studentsService;
         this.repository = repository;
     }
 
@@ -29,14 +33,29 @@ public class StudentsCachedController : ControllerBase, IStudentsService
     // [Authorize]
     public async Task<IActionResult?> GetAll()
     {
-        IEnumerable<Student> allStudents;
+        IEnumerable<Student> allStudents = new List<Student>();
+        // allStudents = memoryCache.GetOrCreate<IEnumerable<Student?>>("students", entry => allStudents);
         allStudents = memoryCache.Get<IEnumerable<Student>>("students");
 
-        if (allStudents is null)
+        if (allStudents is not null)
+        {
+            var firstRecordInCashe = allStudents.ToList()[0];
+            bool isTestInputInCache = firstRecordInCashe.Name == "Anish";
+            if (isTestInputInCache)
+            {
+                allStudents = await repository.GetAll(); // introduces a 5s delay
+                memoryCache.Set("students", allStudents, TimeSpan.FromMinutes(1));
+            }
+        }
+
+        else if (allStudents is null)
         {
             allStudents = await repository.GetAll(); // introduces a 5s delay
             memoryCache.Set("students", allStudents, TimeSpan.FromMinutes(1));
         }
+
+        // allStudents = await repository.GetAll(); // introduces a 5s delay
+        // memoryCache.Set("students", allStudents, TimeSpan.FromMinutes(1));
         return Ok(allStudents);
     }
 
@@ -83,5 +102,18 @@ public class StudentsCachedController : ControllerBase, IStudentsService
             repository.Delete(id);
         }
         return NoContent();
+    }
+
+    [HttpGet("students/test-cache")]
+    public IActionResult TestCache()
+    {
+        dynamic runTimeObject = new ExpandoObject();
+
+        bool isRecordSame = studentsService.CheckingCacheFromPrivateFn("students");
+        runTimeObject.isRecordSame = isRecordSame;
+        runTimeObject.StudentFromInsert = "World";
+        runTimeObject.StudentFromAccess = "Hello";
+
+        return Ok(runTimeObject);
     }
 }

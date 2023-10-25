@@ -9,7 +9,7 @@
 
 // [ApiController]
 // [Route("api/[controller]")]
-// public class StudentsController : ControllerBase, IStudentsService
+// public class StudentsController : ControllerBase
 // {
 //     private readonly IStudentsRepository repository;
 

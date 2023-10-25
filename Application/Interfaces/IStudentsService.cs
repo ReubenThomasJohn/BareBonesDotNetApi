@@ -13,4 +13,5 @@ public interface IStudentsService
     public IActionResult Put(int id, Student updatedStudent);
 
     public IActionResult Delete(int id);
+    public bool CheckingCacheFromPrivateFn(string cache);
 }

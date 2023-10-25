@@ -9,6 +9,7 @@ using BareBonesDotNetApi.Services;
 using Serilog;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc;
+using BareBonesDotNetApi.Application.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +23,7 @@ builder.Services.AddControllers(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IStudentsService, StudentsService>();
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddMemoryCache();
