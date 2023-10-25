@@ -25,11 +25,12 @@ public class EntityFrameworkStudentsRepository : IStudentsRepository
         return dbContext.Students.Find(id);
     }
 
-    public IEnumerable<Student> GetAll()
+    public async Task<IEnumerable<Student>> GetAll()
     {
         // I made a change in Exception settings for this to work, check out exception settings
         // throw new InvalidOperationException("The database connection is closed!");
-        return dbContext.Students.AsNoTracking().ToList();  // Don't keep track of changes using AsNoTracking
+        await Task.Delay(5000);
+        return await dbContext.Students.AsNoTracking().ToListAsync();  // Don't keep track of changes using AsNoTracking
     }
 
     public void Update(Student updatedStudent)

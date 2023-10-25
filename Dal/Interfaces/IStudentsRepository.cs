@@ -10,7 +10,7 @@ namespace StudentApi.Repositories
 
         Student? Get(int id);
 
-        IEnumerable<Student> GetAll();
+        Task<IEnumerable<Student>> GetAll();
 
         void Update(Student updatedStudent);
     }

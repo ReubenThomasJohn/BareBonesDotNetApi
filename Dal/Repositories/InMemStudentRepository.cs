@@ -20,7 +20,7 @@ public class InMemStudentRepository : IStudentsRepository
         }
     };
 
-    public IEnumerable<Student> GetAll()
+    public async Task<IEnumerable<Student>> GetAll()
     {
         return students;
     }

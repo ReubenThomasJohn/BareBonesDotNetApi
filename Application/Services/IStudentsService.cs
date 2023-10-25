@@ -5,7 +5,7 @@ namespace BareBonesDotNetApi.Application.Services;
 
 public interface IStudentsService
 {
-    public IActionResult GetAll();
+    public Task<IActionResult?> GetAll();
     public IActionResult Get(int id);
 
     public IActionResult Post(Student student);

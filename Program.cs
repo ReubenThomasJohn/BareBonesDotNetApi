@@ -23,6 +23,8 @@ builder.Services.AddControllers(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddMemoryCache();
 // builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerGen(options =>
 {
