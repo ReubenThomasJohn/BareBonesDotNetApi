@@ -2,6 +2,10 @@
 - [x] Use EF Core to connect to DB
 - [x] Create another repository to use Stored Procedures.
 
+- [x] Add a State Table, and add a relationship between Students and State. Use only StateId in Student Model.
+
+- [x] Integrate a front-end UI with the controllers.
+
 - [x] Create two new tables: User and UserStatus. The User table needs to have 3 fields, UserID (string) and Password (string), Status (int)
 - [x] Create one endpoint: Register a User. This will take in a UserId and password. The UserID can be saved as-is, but the password needs to be hashed and salted.
 - [x] Create the second endpoint: Login. This will authenticate the user based on the input credentials.
