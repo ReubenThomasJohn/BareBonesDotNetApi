@@ -1,0 +1,344 @@
+2023-10-26 15:39:34.173 +05:30 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-10-26 15:39:34.785 +05:30 [DBG] Entity Framework Core 7.0.11 initialized 'StudentListContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.11' with options: None
+2023-10-26 15:39:34.799 +05:30 [DBG] Creating DbConnection.
+2023-10-26 15:39:34.821 +05:30 [DBG] Created DbConnection. (20ms).
+2023-10-26 15:39:34.825 +05:30 [DBG] Migrating using database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:34.830 +05:30 [DBG] Opening connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:34.934 +05:30 [DBG] An error occurred using the connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:34.935 +05:30 [DBG] Opening connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:34.936 +05:30 [DBG] An error occurred using the connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.091 +05:30 [DBG] Creating DbConnection.
+2023-10-26 15:39:35.093 +05:30 [DBG] Created DbConnection. (1ms).
+2023-10-26 15:39:35.094 +05:30 [DBG] Opening connection to database 'master' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.103 +05:30 [DBG] Opened connection to database 'master' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.107 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.113 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (4ms).
+2023-10-26 15:39:35.115 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (8ms).
+2023-10-26 15:39:35.120 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [StudentDb2];
+2023-10-26 15:39:35.215 +05:30 [INF] Executed DbCommand (95ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [StudentDb2];
+2023-10-26 15:39:35.217 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.218 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.219 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.220 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [StudentDb2] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2023-10-26 15:39:35.254 +05:30 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [StudentDb2] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2023-10-26 15:39:35.257 +05:30 [DBG] Closing connection to database 'master' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.263 +05:30 [DBG] Closed connection to database 'master' on server 'LAPTOP-6GHP9M0T' (3ms).
+2023-10-26 15:39:35.266 +05:30 [DBG] Disposing connection to database 'master' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.268 +05:30 [DBG] Disposed connection to database '' on server '' (1ms).
+2023-10-26 15:39:35.269 +05:30 [DBG] Opening connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.273 +05:30 [DBG] Opened connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.274 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.274 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.275 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.276 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-26 15:39:35.282 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-26 15:39:35.284 +05:30 [DBG] Closing connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.285 +05:30 [DBG] Closed connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T' (0ms).
+2023-10-26 15:39:35.325 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.326 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.327 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (2ms).
+2023-10-26 15:39:35.328 +05:30 [DBG] Opening connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.329 +05:30 [DBG] Opened connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.330 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-10-26 15:39:35.336 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-10-26 15:39:35.337 +05:30 [DBG] Closing connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.338 +05:30 [DBG] Closed connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T' (0ms).
+2023-10-26 15:39:35.339 +05:30 [DBG] Opening connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.340 +05:30 [DBG] Opened connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.341 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.342 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.343 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.343 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-26 15:39:35.345 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-26 15:39:35.346 +05:30 [DBG] Closing connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.348 +05:30 [DBG] Closed connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T' (1ms).
+2023-10-26 15:39:35.350 +05:30 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-10-26 15:39:35.351 +05:30 [DBG] Created DbCommand for 'ExecuteScalar' (0ms).
+2023-10-26 15:39:35.352 +05:30 [DBG] Initialized DbCommand for 'ExecuteScalar' (1ms).
+2023-10-26 15:39:35.353 +05:30 [DBG] Opening connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.354 +05:30 [DBG] Opened connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.355 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-10-26 15:39:35.365 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-10-26 15:39:35.366 +05:30 [DBG] Closing connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.367 +05:30 [DBG] Closed connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T' (1ms).
+2023-10-26 15:39:35.369 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-10-26 15:39:35.370 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2023-10-26 15:39:35.371 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2023-10-26 15:39:35.372 +05:30 [DBG] Opening connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.373 +05:30 [DBG] Opened connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.374 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-10-26 15:39:35.380 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-10-26 15:39:35.383 +05:30 [DBG] Closing data reader to 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.385 +05:30 [DBG] A data reader for 'StudentDb2' on server 'LAPTOP-6GHP9M0T' is being disposed after spending 2ms reading results.
+2023-10-26 15:39:35.386 +05:30 [DBG] Closing connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.387 +05:30 [DBG] Closed connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T' (0ms).
+2023-10-26 15:39:35.394 +05:30 [INF] Applying migration '20231017035949_AddingAuthenticationSupport'.
+2023-10-26 15:39:35.419 +05:30 [DBG] Executing 2 update commands as a batch.
+2023-10-26 15:39:35.425 +05:30 [DBG] Executing 5 update commands as a batch.
+2023-10-26 15:39:35.426 +05:30 [DBG] Executing 2 update commands as a batch.
+2023-10-26 15:39:35.429 +05:30 [DBG] Opening connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.430 +05:30 [DBG] Opened connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.433 +05:30 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2023-10-26 15:39:35.437 +05:30 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2023-10-26 15:39:35.439 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.439 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.441 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (2ms).
+2023-10-26 15:39:35.442 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [States] (
+    [Id] int NOT NULL IDENTITY,
+    [StateName] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_States] PRIMARY KEY ([Id])
+);
+2023-10-26 15:39:35.445 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [States] (
+    [Id] int NOT NULL IDENTITY,
+    [StateName] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_States] PRIMARY KEY ([Id])
+);
+2023-10-26 15:39:35.447 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.447 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.449 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.449 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserStatus] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_UserStatus] PRIMARY KEY ([Id])
+);
+2023-10-26 15:39:35.452 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserStatus] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_UserStatus] PRIMARY KEY ([Id])
+);
+2023-10-26 15:39:35.454 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.454 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.455 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.456 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Students] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Rank] int NOT NULL,
+    [StateId] int NOT NULL,
+    CONSTRAINT [PK_Students] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Students_States_StateId] FOREIGN KEY ([StateId]) REFERENCES [States] ([Id]) ON DELETE CASCADE
+);
+2023-10-26 15:39:35.459 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Students] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Rank] int NOT NULL,
+    [StateId] int NOT NULL,
+    CONSTRAINT [PK_Students] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Students_States_StateId] FOREIGN KEY ([StateId]) REFERENCES [States] ([Id]) ON DELETE CASCADE
+);
+2023-10-26 15:39:35.461 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.461 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.462 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.463 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Username] nvarchar(450) NOT NULL,
+    [PasswordHash] nvarchar(max) NOT NULL,
+    [UserStatusId] int NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Username]),
+    CONSTRAINT [FK_Users_UserStatus_UserStatusId] FOREIGN KEY ([UserStatusId]) REFERENCES [UserStatus] ([Id]) ON DELETE CASCADE
+);
+2023-10-26 15:39:35.466 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Username] nvarchar(450) NOT NULL,
+    [PasswordHash] nvarchar(max) NOT NULL,
+    [UserStatusId] int NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Username]),
+    CONSTRAINT [FK_Users_UserStatus_UserStatusId] FOREIGN KEY ([UserStatusId]) REFERENCES [UserStatus] ([Id]) ON DELETE CASCADE
+);
+2023-10-26 15:39:35.468 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.468 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.469 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.470 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'StateName') AND [object_id] = OBJECT_ID(N'[States]'))
+    SET IDENTITY_INSERT [States] ON;
+INSERT INTO [States] ([Id], [StateName])
+VALUES (1, N'Kerala'),
+(2, N'Tamil Nadu');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'StateName') AND [object_id] = OBJECT_ID(N'[States]'))
+    SET IDENTITY_INSERT [States] OFF;
+2023-10-26 15:39:35.493 +05:30 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'StateName') AND [object_id] = OBJECT_ID(N'[States]'))
+    SET IDENTITY_INSERT [States] ON;
+INSERT INTO [States] ([Id], [StateName])
+VALUES (1, N'Kerala'),
+(2, N'Tamil Nadu');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'StateName') AND [object_id] = OBJECT_ID(N'[States]'))
+    SET IDENTITY_INSERT [States] OFF;
+2023-10-26 15:39:35.496 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.496 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.497 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.498 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name') AND [object_id] = OBJECT_ID(N'[UserStatus]'))
+    SET IDENTITY_INSERT [UserStatus] ON;
+INSERT INTO [UserStatus] ([Id], [Name])
+VALUES (1, N'Verified'),
+(2, N'Not Verified'),
+(3, N'Active'),
+(4, N'Blocked'),
+(5, N'Deleted');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name') AND [object_id] = OBJECT_ID(N'[UserStatus]'))
+    SET IDENTITY_INSERT [UserStatus] OFF;
+2023-10-26 15:39:35.508 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name') AND [object_id] = OBJECT_ID(N'[UserStatus]'))
+    SET IDENTITY_INSERT [UserStatus] ON;
+INSERT INTO [UserStatus] ([Id], [Name])
+VALUES (1, N'Verified'),
+(2, N'Not Verified'),
+(3, N'Active'),
+(4, N'Blocked'),
+(5, N'Deleted');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name') AND [object_id] = OBJECT_ID(N'[UserStatus]'))
+    SET IDENTITY_INSERT [UserStatus] OFF;
+2023-10-26 15:39:35.510 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.511 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.512 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.513 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name', N'Rank', N'StateId') AND [object_id] = OBJECT_ID(N'[Students]'))
+    SET IDENTITY_INSERT [Students] ON;
+INSERT INTO [Students] ([Id], [Name], [Rank], [StateId])
+VALUES (1, N'Raj', 1, 1),
+(2, N'Prakash', 2, 2);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name', N'Rank', N'StateId') AND [object_id] = OBJECT_ID(N'[Students]'))
+    SET IDENTITY_INSERT [Students] OFF;
+2023-10-26 15:39:35.524 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name', N'Rank', N'StateId') AND [object_id] = OBJECT_ID(N'[Students]'))
+    SET IDENTITY_INSERT [Students] ON;
+INSERT INTO [Students] ([Id], [Name], [Rank], [StateId])
+VALUES (1, N'Raj', 1, 1),
+(2, N'Prakash', 2, 2);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name', N'Rank', N'StateId') AND [object_id] = OBJECT_ID(N'[Students]'))
+    SET IDENTITY_INSERT [Students] OFF;
+2023-10-26 15:39:35.526 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.527 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.528 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.529 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Students_StateId] ON [Students] ([StateId]);
+2023-10-26 15:39:35.532 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Students_StateId] ON [Students] ([StateId]);
+2023-10-26 15:39:35.534 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.534 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.535 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.536 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Users_UserStatusId] ON [Users] ([UserStatusId]);
+2023-10-26 15:39:35.538 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Users_UserStatusId] ON [Users] ([UserStatusId]);
+2023-10-26 15:39:35.539 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.540 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.541 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.542 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231017035949_AddingAuthenticationSupport', N'7.0.11');
+2023-10-26 15:39:35.544 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231017035949_AddingAuthenticationSupport', N'7.0.11');
+2023-10-26 15:39:35.547 +05:30 [DBG] Committing transaction.
+2023-10-26 15:39:35.550 +05:30 [DBG] Committed transaction.
+2023-10-26 15:39:35.552 +05:30 [DBG] Disposing transaction.
+2023-10-26 15:39:35.552 +05:30 [DBG] Closing connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.553 +05:30 [DBG] Closed connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T' (0ms).
+2023-10-26 15:39:35.554 +05:30 [INF] Applying migration '20231017040312_AddingAuthenticationSupport1'.
+2023-10-26 15:39:35.559 +05:30 [DBG] Opening connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.560 +05:30 [DBG] Opened connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.562 +05:30 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2023-10-26 15:39:35.563 +05:30 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2023-10-26 15:39:35.564 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.564 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.565 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.566 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Username', N'PasswordHash', N'UserStatusId') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([Username], [PasswordHash], [UserStatusId])
+VALUES (N'Reuben', N'$2a$11$pqKoPi/x.A6xVqstF6dDGOrHJJWkSbdpLx024v5qpLDQiSLZl96KK', 1);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Username', N'PasswordHash', N'UserStatusId') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+2023-10-26 15:39:35.575 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Username', N'PasswordHash', N'UserStatusId') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([Username], [PasswordHash], [UserStatusId])
+VALUES (N'Reuben', N'$2a$11$pqKoPi/x.A6xVqstF6dDGOrHJJWkSbdpLx024v5qpLDQiSLZl96KK', 1);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Username', N'PasswordHash', N'UserStatusId') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+2023-10-26 15:39:35.577 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.578 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.579 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.580 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231017040312_AddingAuthenticationSupport1', N'7.0.11');
+2023-10-26 15:39:35.582 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231017040312_AddingAuthenticationSupport1', N'7.0.11');
+2023-10-26 15:39:35.583 +05:30 [DBG] Committing transaction.
+2023-10-26 15:39:35.584 +05:30 [DBG] Committed transaction.
+2023-10-26 15:39:35.585 +05:30 [DBG] Disposing transaction.
+2023-10-26 15:39:35.585 +05:30 [DBG] Closing connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.586 +05:30 [DBG] Closed connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T' (0ms).
+2023-10-26 15:39:35.588 +05:30 [INF] Applying migration '20231025121308_Adding Data Annotations to Student Model'.
+2023-10-26 15:39:35.595 +05:30 [DBG] Opening connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.596 +05:30 [DBG] Opened connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.597 +05:30 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2023-10-26 15:39:35.598 +05:30 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2023-10-26 15:39:35.599 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.600 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.601 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.602 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Users] SET [PasswordHash] = N'$2a$11$XNRqV4KMaKKfefMSUtvhMu3T6HHKw8hpPobTjKNHPw2dMoWG54uta'
+WHERE [Username] = N'Reuben';
+SELECT @@ROWCOUNT;
+2023-10-26 15:39:35.605 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Users] SET [PasswordHash] = N'$2a$11$XNRqV4KMaKKfefMSUtvhMu3T6HHKw8hpPobTjKNHPw2dMoWG54uta'
+WHERE [Username] = N'Reuben';
+SELECT @@ROWCOUNT;
+2023-10-26 15:39:35.607 +05:30 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-10-26 15:39:35.608 +05:30 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-10-26 15:39:35.608 +05:30 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (1ms).
+2023-10-26 15:39:35.609 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231025121308_Adding Data Annotations to Student Model', N'7.0.11');
+2023-10-26 15:39:35.611 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231025121308_Adding Data Annotations to Student Model', N'7.0.11');
+2023-10-26 15:39:35.612 +05:30 [DBG] Committing transaction.
+2023-10-26 15:39:35.613 +05:30 [DBG] Committed transaction.
+2023-10-26 15:39:35.614 +05:30 [DBG] Disposing transaction.
+2023-10-26 15:39:35.614 +05:30 [DBG] Closing connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.615 +05:30 [DBG] Closed connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T' (0ms).
+2023-10-26 15:39:35.618 +05:30 [DBG] 'StudentListContext' disposed.
+2023-10-26 15:39:35.619 +05:30 [DBG] Disposing connection to database 'StudentDb2' on server 'LAPTOP-6GHP9M0T'.
+2023-10-26 15:39:35.619 +05:30 [DBG] Disposed connection to database '' on server '' (0ms).

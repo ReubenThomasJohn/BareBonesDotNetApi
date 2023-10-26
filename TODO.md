@@ -7,6 +7,8 @@
 - [x] Create the second endpoint: Login. This will authenticate the user based on the input credentials.
 - [x] Create a third endpoint: Soft delete a user. Check what to do?
 
+- [x] Added Authorization based on Claims Principle and JWT Token (Without Identity Framework)
+
 - [x] Implement API Layers
 - [x] Implement Custom Exceptions
 - [x] Implement logging middleware
@@ -15,7 +17,6 @@
 - [x] Create a log file where everything is logged
 - [x] Add the MediaType support globally in Program.cs
 
-- [ ] Add a config file, which gives the log level info to the logger in Program.cs
 - [x] Implement in-mem Caching
 - [x] Refactored controllers to use a service
 

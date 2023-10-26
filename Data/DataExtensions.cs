@@ -24,6 +24,8 @@ public static class DataExtensions
         services.AddSqlServer<StudentListContext>(connString)
                         .AddScoped<IUsersRepository, EntityFrameworkUsersRepository>(); // SqlServer is registered as a scoped service.
 
+        // services.AddSqlServer<StudentListContext1>(connString)
+        //                 .AddScoped<IStudentsRepository, EntityFrameworkStudentsRepository>();
         return services;
     }
 }
