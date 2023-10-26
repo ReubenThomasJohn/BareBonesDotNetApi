@@ -85,7 +85,7 @@ else
 var app = builder.Build();
 
 // app.UseMiddleware<GlobalExceptionMiddleware>();
-// app.UseExceptionHandler(exceptionHandlerApp => exceptionHandlerApp.ConfigureExceptionHandler());
+app.UseExceptionHandler(exceptionHandlerApp => exceptionHandlerApp.ConfigureExceptionHandler());
 // app.UseExceptionHandler("/Home/Error");
 
 
